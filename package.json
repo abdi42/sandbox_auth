@@ -1,0 +1,21 @@
+{
+  "name": "sandbox_auth",
+  "version": "1.0.0",
+  "description": "auth service for sandbox",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "?.git"
+  },
+  "author": "Abdullahi Mahamed",
+  "license": "ISC",
+  "dependencies": {
+    "argparse": "^1.0.9",
+    "faker": "^3.1.0",
+    "hat": "0.0.3",
+    "sandbox_util": "^1.2.0"
+  }
+}
