@@ -19,7 +19,8 @@ module.exports = function(userData,callback){
     })
 
     user.setPassword(userData.password);
-      user.save(function(err){
+    
+    user.save(function(err){
       if(err) return callback(err);
 
       return callback(null);

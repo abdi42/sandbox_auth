@@ -11,6 +11,6 @@ queue.process('registerUser',25,function(job,done){
   util.checkObject(userData,['email','username','password'],function(err){
     if(err) return done(err);
 
-    registerUser(job.data,done);
+    register(job.data,done);
   })
 })
