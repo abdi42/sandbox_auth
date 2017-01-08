@@ -3,9 +3,9 @@ var hat = require('hat');
 var rack = hat.rack();
 
 module.exports = function(userData,callback){
-  if(err) return callback(err);
-
   userSchema.findOne({email:userData.email},function(err,user){
+    if(err) return callback(err);
+
     if(user){
       var err = new Error("user already exists")
       err.status = 400;
@@ -19,7 +19,7 @@ module.exports = function(userData,callback){
     })
 
     user.setPassword(userData.password);
-    
+
     user.save(function(err){
       if(err) return callback(err);
 
