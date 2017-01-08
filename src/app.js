@@ -1,5 +1,5 @@
 var stripe = require("stripe")("sk_test_dJrow4I6j74tdb1ExjPlaLF9");
-var subscriptionsController = require("./controllers/subscriptions.js")
+var subscriptionsController = require("./lib/subscriptions.js")
 var faker = require('faker');
 var mongoose = require('mongoose');
 var mongoose = require('mongoose');
