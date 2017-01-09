@@ -9,7 +9,7 @@ var kue = require('kue')
  , queue = kue.createQueue();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/users');
+mongoose.connect('mongodb://localhost/auth');
 
 queue.process('registerUser',25,function(job,done){
   util.checkObject(job.data,['email','username','password'],function(err){
