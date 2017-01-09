@@ -1,7 +1,9 @@
 var stripe = require("stripe")("sk_test_dJrow4I6j74tdb1ExjPlaLF9");
 var faker = require('faker');
 
-module.exports = function(req,res,next){
+module.exports = function(next){
+  var customerInfo = {};
+
   stripe.tokens.create({
     card: {
       "number": '4000000000000077',
@@ -14,9 +16,9 @@ module.exports = function(req,res,next){
       next(err)
     }
 
-    req.body.token = token.id;
-    req.body.email = faker.internet.email();
+    customerInfo.token = token.id;
+    customerInfo.email = faker.internet.email();
 
-    next(null);
+    next(null,customerInfo);
   });
 }

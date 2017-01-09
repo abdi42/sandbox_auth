@@ -7,7 +7,7 @@ var userSchema = new Schema({
   email: String,
   username:String,
   canceled:{type:Boolean,default:false},
-  secret_key:String
+  secretKey:String
 });
 
 userSchema.methods.setPassword = function(password){

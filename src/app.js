@@ -3,6 +3,7 @@ var subscriptionsController = require("./lib/subscriptions.js")
 var faker = require('faker');
 var mongoose = require('mongoose');
 var mongoose = require('mongoose');
+var userSchema = require("./models/user.js");
 var register = require("./lib/register.js")
 var util = require('sandbox_util');
 var kue = require('kue')
@@ -33,6 +34,25 @@ queue.process('unsubscribeCustomer',25, function(job, done){
   else
     subscriptionsController.unsubscribe(job.data,done)
 });
+
+queue.process('checkSecret',function(job,done){
+  console.log(job.data)
+  userSchema.findOne({secretKey:job.data.secretKey},function(err,user){
+    if(err) done(err);
+
+    if(user != null){
+      console.log(user)
+      if(user.canceled){
+        done("subscriptions plan canceled")
+      }
+
+      done(null,'valid key');
+    }
+    else{
+      done('invalid key')
+    }
+  })
+})
 
 function createNewError(err){
     var error = new Error(err)

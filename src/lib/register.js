@@ -15,7 +15,7 @@ module.exports = function(userData,callback){
     var user = new userSchema({
       email:userData.email,
       username:userData.username,
-      secret_key:rack()
+      secretKey:rack()
     })
 
     user.setPassword(userData.password);
