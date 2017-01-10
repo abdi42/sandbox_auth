@@ -62,7 +62,7 @@ function unsubscribeCustomer() {
 
 function checkSecret(){
   var data = {
-    secretKey:'127991186660d2848868a44679ca5e8'
+    secretKey:'8d093cbbe5286b4c34e6b3b1e120540e'
   }
   var job = queue.create('checkSecret',data).removeOnComplete(true).save();
   console.log('job created');
