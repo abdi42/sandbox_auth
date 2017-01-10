@@ -75,4 +75,4 @@ function checkSecret(){
   })
 }
 
-checkSecret();
+registerUser();
