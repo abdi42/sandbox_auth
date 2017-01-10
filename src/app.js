@@ -36,12 +36,10 @@ queue.process('unsubscribeCustomer',25, function(job, done){
 });
 
 queue.process('checkSecret',function(job,done){
-  console.log(job.data)
   userSchema.findOne({secretKey:job.data.secretKey},function(err,user){
     if(err) done(err);
 
     if(user != null){
-      console.log(user)
       if(user.canceled){
         done("subscriptions plan canceled")
       }
